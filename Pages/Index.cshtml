@@ -1,0 +1,79 @@
+﻿@page
+@model final_project_eryckm55.Pages.IndexModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<!-- HERO BANNER -->
+<div class="p-5 mb-4 bg-dark text-white rounded-3 shadow" style="background-image: linear-gradient(to right,#111,#333);">
+    <div class="container-fluid py-5">
+        <h1 class="display-4 fw-bold">Final Project Dashboard</h1>
+        <p class="fs-5">
+            Manage people, pets, and appointments with your veterinary scheduling system.
+        </p>
+        <a asp-page="/Appointments/Create" class="btn btn-primary btn-lg">Create Appointment</a>
+    </div>
+</div>
+
+<!-- STAT CARDS -->
+<div class="row text-center mb-4">
+    <div class="col-md-4">
+        <div class="card shadow-sm border-primary">
+            <div class="card-body">
+                <h5 class="card-title text-primary">Total People</h5>
+                <p class="display-5 fw-bold">@Model.TotalPeople</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm border-success">
+            <div class="card-body">
+                <h5 class="card-title text-success">Total Pets</h5>
+                <p class="display-5 fw-bold">@Model.TotalPets</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm border-warning">
+            <div class="card-body">
+                <h5 class="card-title text-warning">Appointments</h5>
+                <p class="display-5 fw-bold">@Model.TotalAppointments</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FEATURE CARDS -->
+<div class="row mt-5">
+    <div class="col-md-4">
+        <div class="card shadow">
+            <div class="card-body">
+                <h4>Manage People</h4>
+                <p>View, edit, and organize all customers in the system.</p>
+                <a asp-page="/People/Index" class="btn btn-primary w-100">Go to People</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow">
+            <div class="card-body">
+                <h4>Manage Pets</h4>
+                <p>Track pets belonging to each owner and edit their profiles.</p>
+                <a asp-page="/Pets/Index" class="btn btn-success w-100">Go to Pets</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow">
+            <div class="card-body">
+                <h4>Appointments</h4>
+                <p>Schedule, edit, and track all veterinary appointments.</p>
+                <a asp-page="/Appointments/Index" class="btn btn-warning w-100">Go to Appointments</a>
+            </div>
+        </div>
+    </div>
+</div>

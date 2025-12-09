@@ -1,0 +1,57 @@
+@page
+@model final_project_eryckm55.Pages.Appointments.CreateModel
+@{
+    ViewData["Title"] = "Create Appointment";
+}
+
+<h1 class="text-center mt-4">Create New Appointment</h1>
+<hr />
+
+<div class="card shadow p-4" style="max-width: 600px; margin:auto;">
+    <form method="post">
+
+        <div class="mb-3">
+            <label asp-for="Appointment.AppointmentType" class="form-label"></label>
+            <input asp-for="Appointment.AppointmentType" class="form-control" />
+            <span asp-validation-for="Appointment.AppointmentType" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Appointment.Cost" class="form-label"></label>
+            <input asp-for="Appointment.Cost" class="form-control" />
+            <span asp-validation-for="Appointment.Cost" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Appointment.Date" class="form-label"></label>
+            <input asp-for="Appointment.Date" class="form-control" type="date" />
+            <span asp-validation-for="Appointment.Date" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Select Pet</label>
+            <select asp-for="Appointment.PetID" class="form-select"
+                    asp-items="Model.Pets">
+                <option value="">-- Choose a Pet --</option>
+            </select>
+            <span asp-validation-for="Appointment.PetID" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Select Owner</label>
+            <select asp-for="Appointment.PersonID" class="form-select"
+                    asp-items="Model.People">
+                <option value="">-- Choose an Owner --</option>
+            </select>
+            <span asp-validation-for="Appointment.PersonID" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-success w-100">Create Appointment</button>
+        <a asp-page="./Index" class="btn btn-secondary w-100 mt-2">Cancel</a>
+
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

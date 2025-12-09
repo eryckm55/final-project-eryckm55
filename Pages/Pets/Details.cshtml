@@ -1,0 +1,21 @@
+@page "{id:int}"
+@model final_project_eryckm55.Pages.Pets.DetailsModel
+
+<h1 class="text-center mt-3">Pet Details</h1>
+<hr />
+
+<div class="card shadow p-4" style="max-width:600px;margin:auto;">
+    <dl class="row">
+        <dt class="col-sm-4">Name</dt>
+        <dd class="col-sm-8">@Model.Pet.PetName</dd>
+
+        <dt class="col-sm-4">Type</dt>
+        <dd class="col-sm-8">@Model.Pet.PetType</dd>
+
+        <dt class="col-sm-4">Owner</dt>
+        <dd class="col-sm-8">@Model.Pet.Person?.Name</dd>
+    </dl>
+
+    <a asp-page="./Edit" asp-route-id="@Model.Pet.PetID" class="btn btn-warning w-100 mb-2">Edit</a>
+    <a asp-page="./Index" class="btn btn-secondary w-100">Back</a>
+</div>

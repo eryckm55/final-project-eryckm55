@@ -1,0 +1,38 @@
+@page
+@model final_project_eryckm55.Pages.Appointments.IndexModel
+@{
+    ViewData["Title"] = "Appointments";
+}
+
+<h1 class="text-center mt-3">All Appointments</h1>
+<hr />
+
+<table class="table table-bordered table-striped table-hover mt-4">
+    <thead class="table-dark">
+        <tr>
+            <th>Appointment Type</th>
+            <th>Cost</th>
+            <th>Date</th>
+            <th>Pet</th>
+            <th>Owner</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var a in Model.Appointments)
+        {
+            <tr>
+                <td>@a.AppointmentType</td>
+                <td>@a.Cost.ToString("C")</td>
+                <td>@a.Date.ToShortDateString()</td>
+                <td>@a.Pet.PetName (@a.Pet.PetType)</td>
+                <td>@a.Person.Name</td>
+                <td>
+                    <a class="btn btn-sm btn-info" asp-page="./Details" asp-route-id="@a.AppointmentID">
+                        Details
+                    </a>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>

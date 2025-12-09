@@ -1,0 +1,19 @@
+@page "{id:int}"
+@model final_project_eryckm55.Pages.Pets.DeleteModel
+
+<h1 class="mt-3 text-center">Delete Pet</h1>
+<hr />
+
+<div class="alert alert-danger text-center">
+    Are you sure you want to permanently delete this pet?
+</div>
+
+<div class="card shadow p-4" style="max-width:600px;margin:auto;">
+    <h4>@Model.Pet.PetName (@Model.Pet.PetType)</h4>
+    <p>Owner: <strong>@Model.Pet.Person?.Name</strong></p>
+
+    <form method="post">
+        <button class="btn btn-danger w-100 mb-2">Delete</button>
+        <a asp-page="./Index" class="btn btn-secondary w-100">Cancel</a>
+    </form>
+</div>

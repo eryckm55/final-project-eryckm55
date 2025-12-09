@@ -1,0 +1,18 @@
+@page
+@model final_project_eryckm55.Pages.People.CreateModel
+
+<h1 class="text-center mt-3">Add New Person</h1>
+<hr />
+
+<form method="post" class="card p-4 shadow" style="max-width:500px; margin:auto;">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="Person.Name" class="form-label"></label>
+        <input asp-for="Person.Name" class="form-control" />
+        <span asp-validation-for="Person.Name" class="text-danger"></span>
+    </div>
+
+    <button class="btn btn-success w-100">Create</button>
+    <a asp-page="./Index" class="btn btn-secondary w-100 mt-2">Cancel</a>
+</form>

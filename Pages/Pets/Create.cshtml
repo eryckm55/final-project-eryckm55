@@ -1,0 +1,33 @@
+@page
+@model final_project_eryckm55.Pages.Pets.CreateModel
+
+<h1 class="mt-3 text-center">Add New Pet</h1>
+<hr />
+
+<form method="post" class="card p-4 shadow" style="max-width: 600px; margin: auto;">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="Pet.PetName" class="form-label"></label>
+        <input asp-for="Pet.PetName" class="form-control" />
+        <span asp-validation-for="Pet.PetName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Pet.PetType" class="form-label"></label>
+        <input asp-for="Pet.PetType" class="form-control" />
+        <span asp-validation-for="Pet.PetType" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Owner</label>
+        <select asp-for="Pet.PersonID" class="form-select"
+                asp-items="@(new SelectList(Model.People, "PersonID", "Name"))">
+            <option value="">-- Select Owner --</option>
+        </select>
+        <span asp-validation-for="Pet.PersonID" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success w-100">Save Pet</button>
+    <a asp-page="./Index" class="btn btn-secondary w-100 mt-2">Cancel</a>
+</form>

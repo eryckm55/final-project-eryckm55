@@ -1,0 +1,22 @@
+@page "{id:int}"
+@model final_project_eryckm55.Pages.People.DetailsModel
+
+<h1 class="text-center mt-3">Person Details</h1>
+<hr />
+
+<div class="card p-4 shadow" style="max-width:600px;margin:auto;">
+    <dl class="row">
+        <dt class="col-sm-4">Name</dt>
+        <dd class="col-sm-8">@Model.Person.Name</dd>
+        <dt class="col-sm-4">Pets</dt>
+        <dd class="col-sm-8">
+            @foreach (var pet in Model.Person.Pets)
+            {
+                <div>- @pet.PetName (@pet.PetType)</div>
+            }
+        </dd>
+    </dl>
+
+    <a asp-page="./Edit" asp-route-id="@Model.Person.PersonID" class="btn btn-warning w-100 mb-2">Edit</a>
+    <a asp-page="./Index" class="btn btn-secondary w-100">Back</a>
+</div>
